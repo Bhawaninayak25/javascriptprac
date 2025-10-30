@@ -1,0 +1,51 @@
+1️⃣ Given:
+let nums = [1, 2, 3, 4, 5]
+Make a new array of double numbers
+→ [2, 4, 6, 8, 10]
+
+2️⃣ Given:
+let nums = [10, 20, 30]
+Subtract 5 from each number
+→ [5, 15, 25]
+
+3️⃣ Given:
+let nums = [2, 4, 6]
+Divide each number by 2
+→ [1, 2, 3]
+
+4️⃣ Given:
+let nums = [5, 10, 15, 20]
+Add 10 to each number
+→ [15, 20, 25, 30]
+
+5️⃣ Given:
+let nums = [3, 6, 9]
+Multiply each by 3
+→ [9, 18, 27]
+
+6️⃣ Given:
+let nums = [1, 2, 3, 4]
+Make a new array of square of numbers
+→ [1, 4, 9, 16]
+
+7️⃣ Given:
+let nums = [8, 4, 12]
+Make half values
+→ [4, 2, 6]
+
+8️⃣ Given:
+let nums = [7, 14, 21]
+Find remainder when divided by 5
+→ [2, 4, 1]
+
+B. String Length & Numeric Conversion
+
+9️⃣ Given:
+let str = ["A", "BB", "CCC"]
+Create a new array of lengths
+→ [1, 2, 3]
+
+🔟 Given:
+let nums = ["10", "20", "30"]
+Convert each to number
+→ [10, 20, 30]
