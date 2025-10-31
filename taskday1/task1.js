@@ -126,6 +126,18 @@
 // → [1, 2, 3]
 
 
-let str =["A", "BB", "ccc"]
- let str1= str.map(e=>e.length)
- console.log(str1)
+// let str =["A", "BB", "ccc"]
+//  let str1= str.map(e=>e.length)
+//  console.log(str1)
+
+
+
+// 🔟 Given:
+// let nums = ["10", "20", "30"]
+// Convert each to number
+// → [10, 20, 30]
+
+
+let nums=["10", "20", "30"]
+let strconverttonum=nums.map(e=>e.nums)
+console.log(strconverttonum)

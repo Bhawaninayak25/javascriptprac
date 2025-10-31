@@ -1,0 +1,19 @@
+Array .map() Practice Questions
+1️⃣ Given [1,2,3,4] → Add 2 to every number
+2️⃣ Given [10,20,30,40] → Divide each number by 10
+3️⃣ Given ["a", "b", "c"] → Convert to uppercase
+4️⃣ Given [5,6,7] → Convert each number to its square
+5️⃣ Given ["hi","hello"] → Add "!" at the end of each string
+6️⃣ Given names ["Raj", "Amit", "Neha"] → Convert to "Mr./Ms. <name>"
+7️⃣ Given ["apple","banana","mango"] → Return length of each string
+8️⃣ Given [1, 0, -1] → Convert numbers into "positive", "zero", "negative" strings
+__
+Array .filter() Practice Questions
+1️⃣ Given [1,2,3,4,5] → Keep only even numbers
+2️⃣ Given [10, 5, 40, 30] → Keep only numbers greater than 20
+3️⃣ Given ["a","abc","abcd"] → Keep only strings with length > 2
+4️⃣ Given [true, false, true] → Keep only true values
+5️⃣ Given [5, 10, 15, 20] → Keep only numbers divisible by 10
+6️⃣ Given [100, 200, 30, 40] → Keep only numbers >= 100
+7️⃣ Given [-5, -1, 0, 3, 7] → Keep only positive numbers
+8️⃣ Given list of ages [12,18,25,8,30] → Keep only adults age >= 18
