@@ -1,0 +1,39 @@
+Given an array of numbers, add 5 to each number using .map()
+ Example: [10, 20, 30] → [15, 25, 35]
+
+Q2️⃣
+Take an array of numbers and make a new array with only even numbers using .filter()
+ Example: [1,2,3,4] → [2,4]
+
+Q3️⃣
+Multiply each number by 10 using .map()
+ Example: [2,3,4] → [20,30,40]
+
+Q4️⃣
+Keep only the numbers divisible by 3 using .filter()
+ Example: [5,6,9,10] → [6,9]
+
+Q5️⃣
+Given an array of numbers, subtract 2 from each value using .map()
+ Example: [8,10,12] → [6,8,10]
+
+Q6️⃣
+Filter out numbers greater than 50
+ Example: [10,60,30,80] → [60,80]
+
+Q7️⃣
+Square each element using .map()
+ Example: [2,3,5] → [4,9,25]
+
+Q8️⃣
+Filter the numbers that are odd
+ Example: [10,11,12,13] → [11,13]
+
+Q9️⃣
+Divide each number by 2
+ Example: [4,6,10] → [2,3,5]
+
+Q🔟
+From an array of marks, keep only marks greater than or equal to 35 (passing students)
+ Example: [22,35,50,10,40] → [35,50,40]
+
