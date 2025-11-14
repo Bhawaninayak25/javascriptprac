@@ -1,0 +1,109 @@
+🧠 Tasks using && (Logical AND) Operator
+
+1. Task: Check if a number is between 10 and 20.
+
+Input: 15
+
+Expected Output: “Number is between 10 and 20”
+
+
+
+2. Task: Check if a person is eligible to vote and has an ID.
+
+Input: age = 19, hasID = true
+
+Expected Output: “You can vote”
+
+
+
+3. Task: Validate a login if both username and password are correct.
+
+Input: username = "admin", password = "1234"
+
+Expected Output: “Login successful”
+
+
+
+4. Task: Check if a student has passed all subjects.
+
+Input: Math = 45, Science = 60, English = 70
+
+Expected Output: “Student passed all subjects”
+
+
+
+5. Task: Check if a device is connected and battery level is above 20%.
+
+Input: connected = true, battery = 50
+
+Expected Output: “Device working properly”
+
+
+
+
+
+---
+
+🧩 Tasks using if–else Condition
+
+1. Task: Check whether a number is even or odd.
+
+Input: 8
+
+Expected Output: “Even number”
+
+
+
+2. Task: Check if the temperature is hot, cold, or normal.
+
+Input: 32
+
+Expected Output: “It’s normal”
+
+
+
+3. Task: Find the grade of a student based on marks.
+
+Input: 82
+
+Expected Output: “Grade B”
+
+
+
+4. Task: Find the largest of two numbers.
+
+Input: a = 15, b = 9
+
+Expected Output: “15 is larger”
+
+
+
+5. Task: Check if a year is a leap year or not.
+
+Input: 2024
+
+Expected Output: “Leap year”
+
+
+
+6. Task: Determine whether a person is a child, teenager, or adult.
+
+Input: age = 16
+
+Expected Output: “Teenager”
+
+
+
+7. Task: Check if a number is positive, negative, or zero.
+
+Input: -5
+
+Expected Output: “Negative number”
+
+
+
+8. Task: Display discount based on the total shopping amount.
+
+Input: total = 1200
+
+Expected Output: “You got a 10% discount”
