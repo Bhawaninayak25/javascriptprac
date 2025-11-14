@@ -1,0 +1,331 @@
+What is NestJS?
+NestJS is a progressive Node.js framework for building efficient, scalable server-side applications using TypeScript (or JavaScript) and leveraging concepts from OOP, FP and FRP.
+
+What are the main features of NestJS?
+Modular architecture, dependency injection, decorators, built-in support for validation, guards, interceptors, exception filters, microservices, GraphQL, and testing utilities.
+
+Why use NestJS instead of Express.js or other Node frameworks?
+Nest provides an opinionated structure, TypeScript-first design, and built-in architectural patterns (modules, DI), which improve maintainability and developer productivity compared to unopinionated frameworks.
+
+What architecture pattern does NestJS follow?
+NestJS follows a modular, layered architecture inspired by Angular and commonly referred to as the modular or MVC-like (controller-service-repository) pattern.
+
+What is a module in NestJS?
+A module is a class annotated with @Module() that groups related providers, controllers, and imports/exports to organize the application.
+
+What is a controller in NestJS?
+A controller handles incoming HTTP requests and returns responses, typically delegating business logic to services.
+
+What is a provider in NestJS?
+A provider is any class annotated with @Injectable() (or otherwise registered) that can be injected via DI — commonly services, repositories, factories.
+
+What is a service in NestJS?
+A service is a provider responsible for business logic and data access, typically injected into controllers or other providers.
+
+How does dependency injection work in NestJS?
+Nest uses a hierarchical injector that resolves dependencies based on provider tokens, using constructor injection and metadata produced by TypeScript decorators.
+
+What is the purpose of the main.ts file?
+main.ts is the application bootstrap file that creates the Nest application instance and starts the HTTP server (calls NestFactory.create() and app.listen()).
+
+How do you start a NestJS application?
+By running the bootstrap in main.ts (e.g., npm run start which compiles and runs main.ts) or using the Nest CLI nest start.
+
+What is the difference between Express and Fastify in NestJS?
+Express is the default HTTP adapter (stable, mature), Fastify is an alternative adapter optimized for performance and low overhead; you swap them via adapter configuration.
+
+Can NestJS work without Express?
+Yes — Nest supports multiple HTTP adapters (e.g., Fastify) and can run on them instead of Express.
+
+What are decorators in NestJS?
+Decorators are TypeScript annotations (e.g., @Controller, @Get, @Injectable) that add metadata used by Nest to wire up DI, routing, and runtime behavior.
+
+Explain the concept of Inversion of Control (IoC) in NestJS.
+IoC means that the framework (Nest) is responsible for creating and supplying dependencies to classes, rather than classes instantiating their own dependencies — implemented via DI.
+
+Modules
+
+What is a root module?
+The root module (usually AppModule) is the entry module that bootstraps the application and imports feature modules.
+
+What is a feature module?
+A feature module encapsulates a specific domain or feature set (controllers, providers) and can be imported into other modules.
+
+What is a shared module?
+A shared module exports common providers (e.g., pipes, services) that multiple other modules can import to avoid duplication.
+
+How do you make a module global?
+Use @Global() decorator on the module or provide global-scoped providers via Module configuration; then import is not required in other modules.
+
+What is the purpose of @Module metadata?
+@Module() declares controllers, providers, imports and exports, enabling Nest to build the dependency graph for that module.
+
+How do you import and export modules?
+Add modules to the imports: [] array to use exported providers from them; add providers to exports: [] to make them available to importing modules.
+
+What happens if a module is imported multiple times?
+Providers in a module are instantiated per module scope; importing the same module in multiple modules typically shares providers unless the module is configured to create new instances (e.g., dynamic modules).
+
+Controllers
+
+What is a controller responsible for?
+Handling route definitions, extracting request data, calling services, and returning responses.
+
+Explain the use of @Get(), @Post(), @Put(), @Delete() decorators.
+These decorators map HTTP request methods and route paths to controller handler methods.
+
+How do you handle route parameters?
+Use the @Param() decorator in handler method parameters (e.g., @Param('id') id: string).
+
+How do you handle query parameters?
+Use @Query() to access query string parameters (e.g., @Query('page') page: number).
+
+How do you handle request body data?
+Use @Body() to receive and type request payloads, often with DTOs.
+
+What is the purpose of @Req() and @Res()?
+@Req() and @Res() provide access to the underlying request and response objects (Express/Fastify) for low-level control.
+
+When should you NOT use @Res()?
+Avoid @Res() if you want to keep handlers framework-agnostic and let Nest manage response lifecycle (for interceptors, exception filters, and testing).
+
+Providers & Services
+
+What are providers?
+Providers are injectable classes or values that add functionality and can be injected via DI (services, repositories, factories).
+
+What is the purpose of @Injectable()?
+@Injectable() marks a class as a provider so Nest can create instances and inject dependencies.
+
+How do you inject dependencies?
+Use constructor injection (declare dependencies as constructor parameters) and Nest resolves them by token.
+
+What are custom providers?
+Custom providers let you register values, classes, or factories under a token using useClass, useValue, useFactory, etc., in the module providers array.
+
+What is useClass, useValue, useFactory?
+They are provider registration patterns: useClass maps a token to a class, useValue to a fixed value, useFactory to a factory function that returns the provider.
+
+What is the difference between transient, request-scoped, and singleton providers?
+Singleton (default) — one instance per application; transient — new instance each injection; request-scoped — a unique instance per incoming request (useful for request-specific state).
+
+Pipes
+
+What is a pipe in NestJS?
+Pipes transform and validate incoming data before it reaches route handlers.
+
+What are built-in pipes?
+Examples: ValidationPipe, ParseIntPipe, ParseBoolPipe, ParseArrayPipe, DefaultValuePipe, ParseUUIDPipe.
+
+What is ValidationPipe?
+A built-in pipe that integrates class-validator/class-transformer to validate DTOs and optionally transform payloads to class instances.
+
+How do you create a custom pipe?
+Implement the PipeTransform interface and decorate the class with @Injectable(), then implement transform(value, metadata).
+
+How do pipes differ from interceptors?
+Pipes operate on input transformation/validation before handler execution; interceptors wrap method execution and can modify responses, handle logging, caching, or timeouts.
+
+Guards
+
+What is a guard in NestJS?
+Guards determine whether a request is allowed to proceed to the route handler (used for authorization/authentication).
+
+What is CanActivate interface?
+A guard must implement CanActivate which has a canActivate(context) method returning boolean/Promise/Observable to allow or deny access.
+
+How do you implement role-based authorization?
+Combine custom guards with metadata (e.g., @Roles('admin')) and read those roles in the guard to permit/deny access.
+
+Explain AuthGuard.
+AuthGuard is commonly a Passport integration that delegates authentication strategies and attaches the authenticated user to the request.
+
+How do guards work with passport?
+Passport strategies are wrapped inside guards (@UseGuards(AuthGuard('jwt'))); the guard invokes the strategy and decides access based on the result.
+
+Interceptors
+
+What is an interceptor?
+An interceptor implements NestInterceptor and can bind extra logic before/after method execution (transform result, extend behavior).
+
+What is the purpose of the CallHandler?
+CallHandler gives access to the handle() observable stream of the route handler response, allowing interceptors to transform/catch/modify it.
+
+What is RxJS and why does NestJS use it?
+RxJS is a reactive extensions library for asynchronous programming using Observables; Nest uses it to compose asynchronous flows in interceptors and microservices.
+
+Explain logging interceptors.
+A logging interceptor wraps handler execution to log input, output, execution time, or other telemetry.
+
+Explain timeout interceptors.
+A timeout interceptor can throw an error if the response doesn't arrive within a defined time, protecting resources and enforcing SLAs.
+
+How do interceptors differ from middleware?
+Middleware runs before the route is matched (Express layer) and sees raw request/response; interceptors run inside Nest’s execution context around handlers and can transform responses or execution flow.
+
+Middleware
+
+What is middleware?
+Middleware are functions executed before route handlers (or before controller binding) to modify requests, perform logging, authentication, etc.
+
+How do you implement middleware?
+Create a class implementing NestMiddleware or a function, then apply it globally or via consumer.apply(MyMiddleware).forRoutes(...) in a module.
+
+What is the difference between global and route middleware?
+Global middleware applies to all routes; route middleware applies to specific routes/controllers.
+
+Middleware vs Interceptors vs Guards—differences?
+Middleware: low-level, runs before routing (Express/Fastify). Guards: authorization check in Nest execution context. Interceptors: wrap handler execution to transform/observe responses.
+
+Exception Handling
+
+What is an exception filter?
+Exception filters catch thrown exceptions and shape responses (status codes, body) in a centralized manner.
+
+How do you use @Catch decorator?
+Decorate a class with @Catch() (optionally with specific exception types) and implement ExceptionFilter with catch(exception, host).
+
+What are built-in HTTP exceptions?
+BadRequestException, UnauthorizedException, NotFoundException, ForbiddenException, InternalServerErrorException, etc.
+
+What is HttpException?
+A base class for HTTP-related exceptions which accepts a response message/body and HTTP status code.
+
+How do you create a custom exception filter?
+Implement ExceptionFilter, annotate with @Catch(), and register it globally or at controller/route level.
+
+Validation
+
+How does class-validator work with NestJS?
+class-validator provides decorators (@IsString, @IsNotEmpty, etc.) used on DTO classes; ValidationPipe invokes it to validate request payloads.
+
+How do you define DTOs?
+Create TypeScript classes representing request shapes, annotate with validation decorators, and use them as types for @Body()/@Query().
+
+What is class-transformer?
+A library that transforms plain objects into class instances (and vice versa), enabling automatic type conversion and exposing metadata for validation.
+
+How do you enable global validation?
+In main.ts, call app.useGlobalPipes(new ValidationPipe({ ...options })).
+
+What is whitelist validation?
+whitelist: true strips properties that do not have any decorators in the DTO, preventing unexpected extra fields.
+
+Routing & Request Handling
+
+What is the purpose of route prefixes?
+Route prefixes (e.g., app.setGlobalPrefix('api')) add a common path prefix for all routes, useful for versioning or grouping.
+
+How do you enable versioning in NestJS?
+Use Nest's versioning feature (app.enableVersioning({ type: VersioningType.URI | HEADER | CUSTOM })) or manage via route prefixes.
+
+What is request-scoped provider?
+A provider instantiated per incoming request, allowing you to store request-specific state safely in that provider.
+
+How do you implement nested routing?
+Use controllers with route paths and sub-paths (e.g., @Controller('users/:userId/posts')) or modular controllers and route modules to reflect nested routes.
+
+Database & ORM
+
+How do you connect NestJS with TypeORM?
+Install @nestjs/typeorm and configure TypeOrmModule.forRoot({...}) in the root module and TypeOrmModule.forFeature([Entity]) in feature modules.
+
+What is a repository pattern?
+A repository encapsulates data access logic; TypeORM exposes repositories to query and persist entities in a domain-oriented way.
+
+How do you define entities?
+Use TypeORM decorators on classes (@Entity(), @Column(), @PrimaryGeneratedColumn()) to map classes to DB tables.
+
+How do you use Mongoose with NestJS?
+Use @nestjs/mongoose, configure MongooseModule.forRoot() and MongooseModule.forFeature([{ name: ModelName, schema }]), then inject models.
+
+What are TypeORM relations?
+Relations define associations between entities: @OneToOne, @OneToMany, @ManyToOne, @ManyToMany, possibly with @JoinColumn/@JoinTable.
+
+How do migrations work in TypeORM?
+TypeORM migrations are generated or written SQL/JS files that apply schema changes; run via TypeORM CLI or programmatic APIs.
+
+Difference between TypeORM and Prisma?
+TypeORM is an ORM based on decorators/entities; Prisma is a type-safe query builder/ORM with a schema-driven approach and generates a client, often favored for type-safety and migrations workflow.
+
+Authentication & Authorization
+
+How do you implement JWT in NestJS?
+Use @nestjs/jwt and Passport JWT strategy: issue tokens with JwtService.sign() and protect routes via @UseGuards(AuthGuard('jwt')).
+
+What is Passport.js?
+Passport is a pluggable authentication middleware; Nest integrates it via @nestjs/passport to use many authentication strategies conveniently.
+
+How do you implement local strategy?
+Create a Passport local strategy class that validates credentials and uses AuthService to verify user, then use AuthGuard('local') on login routes.
+
+How do you create custom strategies?
+Extend Passport Strategy (passport-strategy) or implement a custom strategy class and register it with @Injectable() and Passport integration.
+
+What is session-based authentication?
+Authentication that stores user session state on the server (or a session store) with a session id cookie, rather than stateless JWT tokens.
+
+How do you use Guards for authentication?
+Apply auth guards (e.g., @UseGuards(AuthGuard('jwt'))) at controller or route level to check that requests are authenticated.
+
+Microservices
+
+What is microservices architecture?
+An architectural style where an application is composed of small, independent services that communicate over the network via messages or RPC.
+
+How do you create a microservice in NestJS?
+Use NestFactory.createMicroservice(AppModule, { transport: Transport.TCP | REDIS | RMQ | KAFKA, options }) and define message patterns in controllers with @MessagePattern().
+
+What are transport layers in NestJS microservices?
+Built-in transports: TCP, Redis, NATS, RMQ (RabbitMQ), Kafka, MQTT, and custom transports.
+
+What is message pattern?
+A message pattern is a topic/key used to match messages to handlers via @MessagePattern(pattern) or @EventPattern().
+
+How do you use Redis as a message broker?
+Configure the microservice with transport: Transport.REDIS and connection options; then use patterns/events to publish/subscribe.
+
+Difference between RMQ and Kafka in NestJS?
+RMQ (RabbitMQ) is a broker with exchange/queue routing semantics good for jobs and RPC; Kafka is a high-throughput distributed log suitable for streaming and event sourcing — both supported via transports.
+
+GraphQL
+
+How do you enable GraphQL in NestJS?
+Install @nestjs/graphql and configure GraphQLModule.forRoot({ ... }), providing autoSchemaFile (code-first) or typePaths (schema-first).
+
+What is code-first vs schema-first approach?
+Code-first generates GraphQL schema from TypeScript classes/decorators (SDL generated automatically); schema-first starts from .graphql schema and maps resolvers to it.
+
+What are resolvers?
+Resolvers are classes/methods that handle GraphQL queries, mutations, and subscriptions, analogous to controllers but for GraphQL.
+
+How do you use decorators in GraphQL modules?
+Use @ObjectType(), @Field(), @Resolver(), @Query(), @Mutation(), etc., to define GraphQL types and resolvers in code-first approach.
+
+Testing
+
+How do you test controllers?
+Use Test.createTestingModule() to create a testing module, provide mocked services, and call controller methods or supertest against INestApplication.
+
+How do you test services?
+Instantiate services in a test module with mocked dependencies and assert behavior; use Jest for unit tests and mocks.
+
+What is Test.createTestingModule()?
+A Nest testing utility to build an isolated TestingModule with providers/controllers for unit/integration tests.
+
+How do you mock providers in tests?
+Provide a replacement provider using useValue, useFactory or Jest mocks in the providers array when creating the testing module.
+
+Advanced Topics
+
+What is dynamic module?
+A dynamic module is a module that exposes a static method (e.g., forRoot) to accept runtime options and return a Module with configured providers/exports.
+
+How do you use ConfigModule?
+Import @nestjs/config's ConfigModule.forRoot() to manage environment configuration and inject ConfigService where needed.
+
+What is MiddlewareConsumer?
+MiddlewareConsumer is provided in a module's configure() method to apply middleware to routes/controllers with .apply(...).forRoutes(...).
+
+What are lifecycle events in NestJS?
+Lifecycle hooks like OnModuleInit, OnModuleDestroy, OnApplicationBootstrap, BeforeApplicationShutdown and others let providers respond to lifecycle phases.
