@@ -1,0 +1,25 @@
+https://gamma.app/docs/What-is-Docker-aoe4i02i53up4l3?mode=doc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+make a ppt for docker topic is 1.
+ **Docker Introduction** - Docker kya hai? - Virtual Machine vs Docker Container - 
+ Docker kyu use hota hai? (Use cases, benefits),2. **Installation & Setup**
+  - Docker Desktop install karna (Windows / Mac),. **Important Docker Concepts** - I
+  mage - Container - Dockerfile - Registry (Docker Hub) - Docker Engine,**asic Docker Commands**
+   - docker --version, docker info - docker pull - docker run - docker ps, docker ps -a - docker stop, 
+   docker start - docker rm, docker rmi,5. **Docker Images** - Docker Hub se image download karna 
+   - Image inspect karna - Image layers ka concep,. **Containers** - Container create/run karna 
+   - Detached vs Attach mode - Ports mapping (-p flag) - Volume mapping (-v flag)7. **Dockerfile Basics**
+    - Dockerfile kya hota hai? - Simple Dockerfile banana (e.g/Node app) - Build command: docker build -t m
