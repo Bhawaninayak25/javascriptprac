@@ -8,7 +8,7 @@
 
 
 // let num=15;
-// if(num>10 && num<20){
+// if(num>10 || num<20){
 //     console.log("number is beetwin 10 and 20  is =" , num)
 // }
 
@@ -54,15 +54,15 @@
 
 
 
-// let math = 6
-// let science =56  
-// let english =  56
+let math = 6
+let science =56  
+let english =  56
 
-// if (math >= 50 && science >= 50 && english >= 50) {
-//     console.log("Student passed all subjects");
-// } else {
-//     console.log("Student did not pass all subjects");
-// }
+if (math >= 50 && science >= 50 && english >= 50) {
+    console.log("Student passed all subjects");
+} else {
+    console.log("Student did not pass all subjects");
+}
 
 
 // 5. Task: Check if a device is connected and battery level is above 20%.
@@ -134,7 +134,7 @@
 
 // } asdf("ram", msg=>console.log(msg))
 
-window.addEventListener('touchstart', e=> console.log('touched', e.touches.length));
+ 
 
 
 

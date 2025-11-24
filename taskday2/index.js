@@ -63,6 +63,6 @@
 // let names = ["rajesh sir ", "Sara", "Raj"];
 // names.forEach(n => console.log(`hello ${n}`))
 
-let marks = [45, 67, 80];
+// let marks = [45, 67, 80];
 
 

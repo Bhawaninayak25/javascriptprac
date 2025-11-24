@@ -1,12 +1,16 @@
+// let arr = [0,1,2,3,4];
+// let newArr = arr.filter(function(ele){
+//     return ele;
+// })
 
-
+// console.log(newArr);
 // Given an array of numbers, add 5 to each number using .map()
 //  Example: [10, 20, 30] → [15, 25, 35]
 
 
-// let arr=[10,20,30]
-// let arr2=arr.map(val=>val+5)
-// console.log(arr2)
+// let arr=[10,20,30, 5]
+// let arr2=arr.map(val=>val-5)
+// console.log(arr2);
 
 
 // Q2️⃣
@@ -15,7 +19,7 @@
 
 
 // let arr=[1,2,3,4,5]
-// let arr2=arr.filter(ele=>ele%2===0)
+// let arr2=arr.map(ele=>ele%2)
 // console.log(arr2)
 
 
@@ -26,7 +30,7 @@
 
 
 // let arr=[2,3,4]
-// let arr2=arr.map(ele=>ele*10)
+// let arr2=arr.filter(ele=> ele -99)
 // console.log(arr2)
 
 

@@ -1,0 +1,334 @@
+✅ Level 1: Smart Conditional Logic
+You have a variable marks.
+ Write logic to categorize the grade:
+
+
+90+ = "A"
+
+
+75–89 = "B"
+
+
+50–74 = "C"
+
+
+below 50 = "Fail"
+
+
+Given a variable num, check:
+
+
+If it’s positive
+
+
+If it’s negative
+
+
+If it’s zero
+
+
+A variable temp holds temperature in °C.
+ Display:
+
+
+"Hot" if above 35
+
+
+"Cold" if below 15
+
+
+"Moderate" otherwise
+
+
+You get a speed value.
+ Show:
+
+
+"Overspeeding" if speed > 80
+
+
+"Safe speed" if speed between 40 and 80
+
+
+"Too slow" if below 40
+
+
+
+✅ Level 2: Multiple Conditions
+Given age and hasLicense (true/false), decide:
+
+
+If age < 18 → "Not eligible"
+
+
+If age ≥ 18 but no license → "Need license"
+
+
+If age ≥ 18 and has license → "You can drive"
+
+
+You have username and password.
+
+
+If both match predefined values → "Login Successful"
+
+
+If username matches but password doesn’t → "Wrong Password"
+
+
+Otherwise → "User Not Found"
+
+
+A number x:
+
+
+If divisible by 3 and 5 → "FizzBuzz"
+
+
+If divisible by 3 only → "Fizz"
+
+
+If divisible by 5 only → "Buzz"
+
+
+Otherwise → print the number
+
+
+Given dayNumber (1–7), print:
+
+
+1 → Monday
+
+
+…
+
+
+7 → Sunday
+
+
+Anything else → "Invalid Day"
+
+
+
+✅ Level 3: Nested & Real-World Decisions
+A store gives discounts:
+
+
+If customer is a member:
+
+
+If bill > 5000 → 20% off
+
+
+Else → 10% off
+
+
+If not a member:
+
+
+If bill > 5000 → 5% off
+
+
+Else → "No discount"
+
+
+Movie ticket pricing:
+
+
+If age < 12 → "Child Rate"
+
+
+Else:
+
+
+If age > 60 → "Senior Rate"
+
+
+Otherwise → "Standard Rate"
+
+
+An online form has emailVerified and phoneVerified booleans:
+
+
+If both true → "Account Activated"
+
+
+If only one true → "Verification Pending"
+
+
+If both false → "Not Verified"
+
+
+Evaluate student eligibility:
+
+
+attendance percentage
+
+
+marks
+
+
+If attendance < 75 → "Not Eligible"
+
+
+Else if marks ≥ 60 → "Eligible"
+
+
+Else → "Needs Improvement"
+
+
+
+✅ Level 4: Logical Operators + If Chains
+Given time (0–23) and isWeekend:
+
+
+If time between 9–18 and not weekend → "Working Hours"
+
+
+If weekend and time < 18 → "Holiday"
+
+
+Otherwise → "Off Hours"
+
+
+A product has:
+
+
+stock (number)
+
+
+isBlocked (boolean)
+
+
+If stock == 0 → "Out of Stock"
+
+
+Else if isBlocked → "Product Disabled"
+
+
+Else → "Available"
+
+
+For an exam:
+
+
+score
+
+
+isCheated (boolean)
+
+
+If cheated → "Disqualified"
+
+
+Else if score ≥ 90 → "Topper"
+
+
+Else if score ≥ 60 → "Pass"
+
+
+Else → "Fail"
+
+
+For an event entry:
+
+
+age
+
+
+hasPass (boolean)
+
+
+If age < 18 → "Not Allowed"
+
+
+Else if hasPass → "Entry Granted"
+
+
+Else → "Pass Required"
+
+
+
+✅ Level 5: Complex Situations
+A shopping cart:
+
+
+items count
+
+
+totalPrice
+
+
+If items == 0 → "Cart Empty"
+
+
+Else if totalPrice > 2000 → "Free Shipping"
+
+
+Else → "Shipping Charges Apply"
+
+
+Gym membership:
+
+
+age
+
+
+medicalIssue (boolean)
+
+
+If medicalIssue → "Doctor Approval Needed"
+
+
+Else if age < 16 → "Not Allowed"
+
+
+Else → "Allowed"
+
+
+A mobile plan:
+
+
+dataUsed (GB)
+
+
+If > 100 → "Plan Suspended"
+
+
+Else if > 80 → "Warning: High Usage"
+
+
+Else if > 50 → "Consider Upgrade"
+
+
+Else → "Normal Usage"
+
+
+Weather advice:
+
+
+rain (true/false)
+
+
+temperature
+
+
+If raining and temp < 10 → "Wear Jacket & Carry Umbrella"
+
+
+If raining and temp ≥ 10 → "Carry Umbrella"
+
+
+If not raining and temp < 10 → "Wear Jacket"
+
+
+Else → "Normal Day"
+
+
+
+
+
+
+
+
+
