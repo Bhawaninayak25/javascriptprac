@@ -70,3 +70,9 @@
 // let arr=[2,3,5]
 // let arr2=arr.map(val=> {val*val})
 // console.log(arr2)
+
+
+
+let arr =[123,344]
+let ar2=arr.map(val=>val+val)
+console.log(ar2)
